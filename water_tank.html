@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Tank Problem</title>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    td {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+    }
+
+    .block {
+      background-color: yellow;
+    }
+
+    .water {
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Water Tank Problem</h2>
+
+  <input
+    id="input"
+    value="0,4,0,0,0,6,0,6,4,0"
+  />
+
+  <button onclick="solve()">
+    Calculate
+  </button>
+
+  <h3 id="result"></h3>
+
+  <div id="grid"></div>
+
+  <script>
+    function solve() {
+      const heights = document
+        .getElementById("input")
+        .value
+        .split(",")
+        .map(Number);
+
+      const n = heights.length;
+      const maxHeight = Math.max(...heights);
+
+      const leftMax = Array(n);
+      const rightMax = Array(n);
+
+      leftMax[0] = heights[0];
+
+      for (let i = 1; i < n; i++) {
+        leftMax[i] = Math.max(
+          leftMax[i - 1],
+          heights[i]
+        );
+      }
+
+      rightMax[n - 1] = heights[n - 1];
+
+      for (let i = n - 2; i >= 0; i--) {
+        rightMax[i] = Math.max(
+          rightMax[i + 1],
+          heights[i]
+        );
+      }
+
+      const water = Array(n).fill(0);
+      let totalWater = 0;
+
+      for (let i = 0; i < n; i++) {
+        water[i] = Math.max(
+          0,
+          Math.min(leftMax[i], rightMax[i]) -
+            heights[i]
+        );
+
+        totalWater += water[i];
+      }
+
+      document.getElementById(
+        "result"
+      ).innerText = `Output: ${totalWater} Units`;
+
+      renderTable(
+        heights,
+        water,
+        maxHeight
+      );
+    }
+
+    function renderTable(
+      heights,
+      water,
+      maxHeight
+    ) {
+      const container =
+        document.getElementById("grid");
+
+      let html = "<table>";
+
+      for (
+        let row = maxHeight;
+        row >= 1;
+        row--
+      ) {
+        html += "<tr>";
+
+        for (
+          let col = 0;
+          col < heights.length;
+          col++
+        ) {
+          const blockExists =
+            heights[col] >= row;
+
+          const waterExists =
+            !blockExists &&
+            heights[col] + water[col] >= row;
+
+          if (blockExists) {
+            html +=
+              '<td class="block"></td>';
+          } else if (waterExists) {
+            html +=
+              '<td class="water"></td>';
+          } else {
+            html += "<td></td>";
+          }
+        }
+
+        html += "</tr>";
+      }
+
+      html += "</table>";
+
+      container.innerHTML = html;
+    }
+
+    solve();
+  </script>
+</body>
+</html>
