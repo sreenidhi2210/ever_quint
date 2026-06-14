@@ -1,0 +1,1351 @@
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `meeting_room_booking_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE DATABASE `meeting_room_booking_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('1334569590084671850', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateRooms (20260614064210)
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE `rooms` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `capacity` int, `floor` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('1334569590084671850')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('1334569590084671850', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateRooms (20260614064210)
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE `rooms` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `capacity` int, `floor` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('1334569590084671850')[0m
+Started POST "/rooms" for ::1 at 2026-06-14 12:16:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 4 pending migrations:
+
+20260614064210_create_rooms.rb
+20260614064221_create_bookings.rb
+20260614064233_create_room_amenities.rb
+20260614064510_create_idempotency_keys.rb
+
+
+):
+  
+activerecord (7.0.10) lib/active_record/migration.rb:663:in 'ActiveRecord::Migration.check_pending!'
+activerecord (7.0.10) lib/active_record/migration.rb:628:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (7.0.10) lib/active_support/file_update_checker.rb:83:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (7.0.10) lib/active_record/migration.rb:633:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (7.0.10) lib/active_record/migration.rb:625:in 'Thread::Mutex#synchronize'
+activerecord (7.0.10) lib/active_record/migration.rb:625:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:27:in 'block in ActionDispatch::Callbacks#call'
+activesupport (7.0.10) lib/active_support/callbacks.rb:99:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:26:in 'ActionDispatch::Callbacks#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in 'ActionDispatch::Executor#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/debug_exceptions.rb:28:in 'ActionDispatch::DebugExceptions#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/show_exceptions.rb:29:in 'ActionDispatch::ShowExceptions#call'
+railties (7.0.10) lib/rails/rack/logger.rb:40:in 'Rails::Rack::Logger#call_app'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in 'block in Rails::Rack::Logger#call'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in 'block in ActiveSupport::TaggedLogging#tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:37:in 'ActiveSupport::TaggedLogging::Formatter#tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in 'ActiveSupport::TaggedLogging#tagged'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in 'Rails::Rack::Logger#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/remote_ip.rb:93:in 'ActionDispatch::RemoteIp#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/request_id.rb:26:in 'ActionDispatch::RequestId#call'
+rack (2.2.23) lib/rack/runtime.rb:22:in 'Rack::Runtime#call'
+activesupport (7.0.10) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in 'ActionDispatch::Executor#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/static.rb:23:in 'ActionDispatch::Static#call'
+rack (2.2.23) lib/rack/sendfile.rb:127:in 'Rack::Sendfile#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/host_authorization.rb:138:in 'ActionDispatch::HostAuthorization#call'
+railties (7.0.10) lib/rails/engine.rb:531:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (53.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `meeting_room_booking_development`[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `meeting_room_booking_test`[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE DATABASE `meeting_room_booking_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE `meeting_room_booking_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('1334569590084671850', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateRooms (20260614064210)
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE `rooms` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `capacity` int, `floor` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614064210')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookings (20260614064221)
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE `bookings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `room_id` bigint NOT NULL, `title` varchar(255), `organizer_email` varchar(255), `start_time` datetime(6), `end_time` datetime(6), `status` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_bookings_on_room_id` (`room_id`), CONSTRAINT `fk_rails_4fe21eabc6`
+FOREIGN KEY (`room_id`)
+  REFERENCES `rooms` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614064221')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRoomAmenities (20260614064233)
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE `room_amenities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `room_id` bigint NOT NULL, `amenity` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_room_amenities_on_room_id` (`room_id`), CONSTRAINT `fk_rails_7e6e0059a4`
+FOREIGN KEY (`room_id`)
+  REFERENCES `rooms` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614064233')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateIdempotencyKeys (20260614064510)
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE `idempotency_keys` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `key` varchar(255), `organizer_email` varchar(255), `booking_id` bigint NOT NULL, `request_hash` varchar(255), `status` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_idempotency_keys_on_booking_id` (`booking_id`), CONSTRAINT `fk_rails_b57b8bc5d7`
+FOREIGN KEY (`booking_id`)
+  REFERENCES `bookings` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614064510')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2026-06-14 06:47:53.777162', '2026-06-14 06:47:53.777162')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('1334569590084671850')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/rooms" for ::1 at 2026-06-14 12:18:00 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x00000001248d4120>, params: {"name" => "Orion", "capacity" => 10, "floor" => 2, "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:5:in 'RoomsController#create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `capacity`, `floor`, `created_at`, `updated_at`) VALUES ('Orion', 10, 2, '2026-06-14 06:48:00.980654', '2026-06-14 06:48:00.980654')[0m
+  ↳ app/controllers/rooms_controller.rb:5:in 'RoomsController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:5:in 'RoomsController#create'
+Completed 201 Created in 12ms (Views: 0.2ms | ActiveRecord: 11.2ms | Allocations: 10604)
+
+
+Started POST "/rooms" for ::1 at 2026-06-14 12:38:47 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.9ms | Allocations: 472)
+
+
+  
+Zeitwerk::NameError (expected file /Users/smn/assignment/meeting_room_booking/app/services/booking_service.rb to define constant BookingService, but didn't):
+  
+app/services/room_service.rb:1:in '<compiled>'
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:39:18 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 4.6ms | Allocations: 449)
+
+
+  
+Zeitwerk::NameError (expected file /Users/smn/assignment/meeting_room_booking/app/services/room_service.rb to define constant RoomService, but didn't):
+  
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:39:20 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 173)
+
+
+  
+NameError (uninitialized constant RoomsController::RoomService):
+  
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:39:54 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000126448c08>, params: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 4.6ms | Allocations: 493)
+
+
+  
+NoMethodError (undefined method 'create!' for class RoomService):
+  
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:40:18 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000126328a30>, params: {"name" => "Orion", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion' LIMIT 1[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+Completed 422 Unprocessable Entity in 16ms (ActiveRecord: 5.3ms | Allocations: 7594)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Name has already been taken):
+  
+app/services/room_service.rb:6:in 'RoomService.create!'
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:40:22 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion1", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion1", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000124d69118>, params: {"name" => "Orion1", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion1", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion1' LIMIT 1[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `capacity`, `floor`, `created_at`, `updated_at`) VALUES ('Orion1', 10, 2, '2026-06-14 07:10:22.682631', '2026-06-14 07:10:22.682631')[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.7ms | Allocations: 3832)
+
+
+  
+NoMethodError (undefined method 'room_amenities' for an instance of Room):
+  
+app/services/room_service.rb:9:in 'block in RoomService.create!'
+app/services/room_service.rb:8:in 'Array#each'
+app/services/room_service.rb:8:in 'RoomService.create!'
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:41:03 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion1", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion1", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x00000001259882a0>, params: {"name" => "Orion1", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion1", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion1' LIMIT 1[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+Completed 422 Unprocessable Entity in 13ms (ActiveRecord: 4.3ms | Allocations: 4867)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Name has already been taken):
+  
+app/services/room_service.rb:6:in 'RoomService.create!'
+app/controllers/rooms_controller.rb:3:in 'RoomsController#create'
+Started POST "/rooms" for ::1 at 2026-06-14 12:41:08 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion2", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion2", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125523980>, params: {"name" => "Orion2", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion2", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion2' LIMIT 1[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `capacity`, `floor`, `created_at`, `updated_at`) VALUES ('Orion2', 10, 2, '2026-06-14 07:11:08.904903', '2026-06-14 07:11:08.904903')[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:6:in 'RoomService.create!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+  [1m[36mRoomAmenity Create (0.9ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (3, 'TV', '2026-06-14 07:11:08.942823', '2026-06-14 07:11:08.942823')[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+  [1m[36mRoomAmenity Create (0.3ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (3, 'Whiteboard', '2026-06-14 07:11:08.946788', '2026-06-14 07:11:08.946788')[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:9:in 'block in RoomService.create!'
+Completed 201 Created in 48ms (Views: 0.2ms | ActiveRecord: 6.5ms | Allocations: 16732)
+
+
+Started GET "/rooms" for ::1 at 2026-06-14 12:42:10 +0530
+Processing by RoomsController#index as */*
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT DISTINCT `rooms`.* FROM `rooms`[0m
+  ↳ app/controllers/rooms_controller.rb:11:in 'RoomsController#index'
+  [1m[36mRoomAmenity Load (0.5ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` IN (1, 2, 3)[0m
+  ↳ app/controllers/rooms_controller.rb:11:in 'RoomsController#index'
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.8ms | Allocations: 4767)
+
+
+Started GET "/rooms?minCapacity=15" for ::1 at 2026-06-14 12:42:33 +0530
+Processing by RoomsController#index as */*
+  Parameters: {"minCapacity" => "15"}
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT DISTINCT `rooms`.* FROM `rooms` WHERE (capacity >= '15')[0m
+  ↳ app/controllers/rooms_controller.rb:11:in 'RoomsController#index'
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 1.4ms | Allocations: 957)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:42:45 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000125a4f6e8>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-06-15 09:00:00', '2026-06-15 10:00:00', 'confirmed', '2026-06-14 07:12:45.752075', '2026-06-14 07:12:45.752075')[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 3.6ms | Allocations: 7179)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:42:59 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001253033f8>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mBooking Create (0.4ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-06-15 09:00:00', '2026-06-15 10:00:00', 'confirmed', '2026-06-14 07:12:59.495913', '2026-06-14 07:12:59.495913')[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 3249)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:43:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124f27ef0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-06-15 09:00:00', '2026-06-15 10:00:00', 'confirmed', '2026-06-14 07:13:02.403807', '2026-06-14 07:13:02.403807')[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 3249)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:43:03 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001231da140>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-06-15 09:00:00', '2026-06-15 10:00:00', 'confirmed', '2026-06-14 07:13:03.255352', '2026-06-14 07:13:03.255352')[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+Completed 201 Created in 20ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3251)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:45:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000126967b30>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-06-15 09:00:00', '2026-06-15 10:00:00', 'confirmed', '2026-06-14 07:15:37.040889', '2026-06-14 07:15:37.040889')[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:9:in 'BookingService.create!'
+Completed 201 Created in 16ms (Views: 0.1ms | ActiveRecord: 8.4ms | Allocations: 16322)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:45:48 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001271771e0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:5:in 'BookingService.create!'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms | Allocations: 985)
+
+
+  
+NameError (uninitialized constant #<Class:BookingService>::ValidationError):
+  
+app/services/booking_service.rb:59:in 'BookingService.validate_booking!'
+app/services/booking_service.rb:7:in 'BookingService.create!'
+app/controllers/bookings_controller.rb:4:in 'BookingsController#create'
+Started POST "/bookings" for ::1 at 2026-06-14 12:55:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 2 pending migrations:
+
+20260614120000_update_idempotency_keys.rb
+20260614120100_add_indexes.rb
+
+
+):
+  
+activerecord (7.0.10) lib/active_record/migration.rb:663:in 'ActiveRecord::Migration.check_pending!'
+activerecord (7.0.10) lib/active_record/migration.rb:628:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (7.0.10) lib/active_support/file_update_checker.rb:83:in 'ActiveSupport::FileUpdateChecker#execute'
+activesupport (7.0.10) lib/active_support/file_update_checker.rb:93:in 'ActiveSupport::FileUpdateChecker#execute_if_updated'
+activerecord (7.0.10) lib/active_record/migration.rb:635:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (7.0.10) lib/active_record/migration.rb:625:in 'Thread::Mutex#synchronize'
+activerecord (7.0.10) lib/active_record/migration.rb:625:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:27:in 'block in ActionDispatch::Callbacks#call'
+activesupport (7.0.10) lib/active_support/callbacks.rb:99:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (7.0.10) lib/action_dispatch/middleware/callbacks.rb:26:in 'ActionDispatch::Callbacks#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in 'ActionDispatch::Executor#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/debug_exceptions.rb:28:in 'ActionDispatch::DebugExceptions#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/show_exceptions.rb:29:in 'ActionDispatch::ShowExceptions#call'
+railties (7.0.10) lib/rails/rack/logger.rb:40:in 'Rails::Rack::Logger#call_app'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in 'block in Rails::Rack::Logger#call'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in 'block in ActiveSupport::TaggedLogging#tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:37:in 'ActiveSupport::TaggedLogging::Formatter#tagged'
+activesupport (7.0.10) lib/active_support/tagged_logging.rb:99:in 'ActiveSupport::TaggedLogging#tagged'
+railties (7.0.10) lib/rails/rack/logger.rb:25:in 'Rails::Rack::Logger#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/remote_ip.rb:93:in 'ActionDispatch::RemoteIp#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/request_id.rb:26:in 'ActionDispatch::RequestId#call'
+rack (2.2.23) lib/rack/runtime.rb:22:in 'Rack::Runtime#call'
+activesupport (7.0.10) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (7.0.10) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/executor.rb:14:in 'ActionDispatch::Executor#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/static.rb:23:in 'ActionDispatch::Static#call'
+rack (2.2.23) lib/rack/sendfile.rb:127:in 'Rack::Sendfile#call'
+actionpack (7.0.10) lib/action_dispatch/middleware/host_authorization.rb:138:in 'ActionDispatch::HostAuthorization#call'
+railties (7.0.10) lib/rails/engine.rb:531:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('1334569590084671850', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to UpdateIdempotencyKeys (20260614120000)
+  [1m[35m (28.6ms)[0m  [1m[35mALTER TABLE `idempotency_keys` CHANGE `booking_id` `booking_id` bigint DEFAULT NULL[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_idempotency_keys_on_key_and_organizer_email` ON `idempotency_keys` (`key`, `organizer_email`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614120000')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddIndexes (20260614120100)
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_rooms_on_name` ON `rooms` (`name`)[0m
+  [1m[35m (20.9ms)[0m  [1m[35mCREATE INDEX `index_bookings_on_room_status_and_times` ON `bookings` (`room_id`, `status`, `start_time`, `end_time`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20260614120100')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('1334569590084671850')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/bookings" for ::1 at 2026-06-14 12:56:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001244433e0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001244433e0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.6ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.9ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, 'e34317d8f8f30dbb72819c3692afca258056c654d7dbb3f3b3ca321944f90509', 'processing', '2026-06-14 07:26:06.673274', '2026-06-14 07:26:06.673274')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 24ms (Views: 0.1ms | ActiveRecord: 12.0ms | Allocations: 21090)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 12:56:12 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124cd2c68>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124cd2c68>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.4ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (1.7ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, '61101d9a02c3109f334df24582eecb90e080bd17ad38b43e8374f97bf79bc7ab', 'processing', '2026-06-14 07:26:13.000302', '2026-06-14 07:26:13.000302')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-06-15 10:00:00' AND end_time > '2026-06-15 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 409 Conflict in 22ms (Views: 0.2ms | ActiveRecord: 5.0ms | Allocations: 6502)
+
+
+Started GET "/reports/room-utilization?from=2026-06-01T00:00:00Z&to=2026-06-30T23:59:59Z" for ::1 at 2026-06-14 12:56:40 +0530
+Processing by ReportsController#room_utilization as */*
+  Parameters: {"from" => "2026-06-01T00:00:00Z", "to" => "2026-06-30T23:59:59Z"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 3705)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'bookings' was not found on Room; perhaps you misspelled it?):
+  
+app/services/utilization_service.rb:8:in 'Enumerable#map'
+app/services/utilization_service.rb:8:in 'UtilizationService.generate'
+app/controllers/reports_controller.rb:7:in 'ReportsController#room_utilization'
+Started GET "/reports/room-utilization?from=2026-06-01T00:00:00Z&to=2026-06-30T23:59:59Z" for ::1 at 2026-06-14 12:58:17 +0530
+Processing by ReportsController#room_utilization as */*
+  Parameters: {"from" => "2026-06-01T00:00:00Z", "to" => "2026-06-30T23:59:59Z"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` IN (1, 2, 3)[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 6.6ms | Allocations: 15195)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 12:58:37 +0530
+Processing by BookingsController#index as */*
+  [1m[36mBooking Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings`[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2844)
+
+
+Started POST "/bookings/1/cancel" for ::1 at 2026-06-14 12:58:46 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"id" => "1"}
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mBooking Update (1.0ms)[0m  [1m[33mUPDATE `bookings` SET `bookings`.`status` = 'cancelled', `bookings`.`updated_at` = '2026-06-14 07:28:46.031410' WHERE `bookings`.`id` = 1[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 5510)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 12:58:52 +0530
+Processing by BookingsController#index as */*
+  [1m[36mBooking Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings`[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1942)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:00:06 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000125d7a2a0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000125d7a2a0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-15T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.2ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.4ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, 'e1bcc4a6970110cc315224efcc0ee35a70cac9419df6bc825fe15a77f7c7eabd', 'processing', '2026-06-14 07:30:06.717737', '2026-06-14 07:30:06.717737')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 39ms (Views: 0.1ms | ActiveRecord: 4.9ms | Allocations: 9738)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:00:28 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124d71e08>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124d71e08>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-06-14T09:00:00Z", "end_time" => "2026-06-14T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.6ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, '429d0d8ec1d500f03857b532ea561cf039a80ea570d4eb6817db2ff7e520c1a1', 'processing', '2026-06-14 07:30:28.469842', '2026-06-14 07:30:28.469842')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 22ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 5230)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:00:41 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124f791b0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124f791b0>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.5ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, '22e3cea6e34132aabc220df3baed7e7fb8b149ee608dcec7d0b6044ebe14edc1', 'processing', '2026-06-14 07:30:41.150054', '2026-06-14 07:30:41.150054')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 07:30:41.156964', '2026-06-14 07:30:41.156964')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`id` != 5 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.5ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 6, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 07:30:41.161583' WHERE `idempotency_keys`.`id` = 5[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 26ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 8930)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:00:51 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001252d2d20>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x00000001252d2d20>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.6ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.6ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, '22e3cea6e34132aabc220df3baed7e7fb8b149ee608dcec7d0b6044ebe14edc1', 'processing', '2026-06-14 07:30:51.329484', '2026-06-14 07:30:51.329484')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.6ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 07:30:51.338123', '2026-06-14 07:30:51.338123')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`id` != 6 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.3ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 7, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 07:30:51.344744' WHERE `idempotency_keys`.`id` = 6[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 28ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 8643)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:00:52 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000125b3e4c8>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000125b3e4c8>, params: {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 1, "title" => "Daily Standup", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.4ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, '22e3cea6e34132aabc220df3baed7e7fb8b149ee608dcec7d0b6044ebe14edc1', 'processing', '2026-06-14 07:30:52.313947', '2026-06-14 07:30:52.313947')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 07:30:52.320645', '2026-06-14 07:30:52.320645')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`id` != 7 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.5ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 8, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 07:30:52.325907' WHERE `idempotency_keys`.`id` = 7[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 23ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 8649)
+
+
+Started POST "/rooms" for ::1 at 2026-06-14 13:22:03 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion2", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion2", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000124c571d0>, params: {"name" => "Orion2", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion2", "capacity" => 10, "floor" => 2}} }[0m
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000124c571d0>, params: {"name" => "Orion2", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion2", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mRoom Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion2' LIMIT 1[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+Completed 400 Bad Request in 18ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 5392)
+
+
+Started POST "/rooms" for ::1 at 2026-06-14 13:22:16 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion3", "capacity" => -10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion3", "capacity" => -10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125cd07a0>, params: {"name" => "Orion3", "capacity" => -10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion3", "capacity" => -10, "floor" => 2}} }[0m
+Filter chain halted as :validate_create_params rendered or redirected
+Completed 400 Bad Request in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 901)
+
+
+Started POST "/rooms" for ::1 at 2026-06-14 13:22:19 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125c95150>, params: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}} }[0m
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125c95150>, params: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mRoom Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'Orion3' LIMIT 1[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mRoom Create (0.6ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `capacity`, `floor`, `created_at`, `updated_at`) VALUES ('Orion3', 10, 2, '2026-06-14 07:52:19.671087', '2026-06-14 07:52:19.671087')[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoomAmenity Create (0.6ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (4, 'TV', '2026-06-14 07:52:19.688959', '2026-06-14 07:52:19.688959')[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoomAmenity Create (0.3ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (4, 'Whiteboard', '2026-06-14 07:52:19.694320', '2026-06-14 07:52:19.694320')[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 4 LIMIT 1[0m
+  ↳ app/services/room_service.rb:17:in 'RoomService.create'
+  [1m[36mRoomAmenity Load (0.4ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` = 4[0m
+  ↳ app/serializers/api_serializer.rb:10:in 'Enumerable#map'
+Completed 201 Created in 38ms (Views: 0.2ms | ActiveRecord: 9.3ms | Allocations: 13825)
+
+
+Started GET "/rooms" for ::1 at 2026-06-14 13:26:14 +0530
+Processing by RoomsController#index as */*
+  Parameters: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT DISTINCT `rooms`.* FROM `rooms` ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+  [1m[36mRoomAmenity Load (0.3ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` IN (1, 2, 3, 4)[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3157)
+
+
+Started GET "/rooms?minCapacity=10" for ::1 at 2026-06-14 13:29:48 +0530
+Processing by RoomsController#index as */*
+  Parameters: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "minCapacity" => "10", "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}}
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT DISTINCT `rooms`.* FROM `rooms` WHERE (capacity >= '10') ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+  [1m[36mRoomAmenity Load (0.5ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` IN (1, 2, 3, 4)[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 2142)
+
+
+Started GET "/rooms?minCapacity=10" for ::1 at 2026-06-14 13:46:12 +0530
+Processing by RoomsController#index as */*
+  Parameters: {"name" => "Orion3", "capacity" => 10, "floor" => 2, "amenities" => ["TV", "Whiteboard"], "minCapacity" => "10", "room" => {"name" => "Orion3", "capacity" => 10, "floor" => 2}}
+  [1m[36mRoom Load (1.3ms)[0m  [1m[34mSELECT DISTINCT `rooms`.* FROM `rooms` WHERE (capacity >= '10') ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+  [1m[36mRoomAmenity Load (0.6ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` IN (1, 2, 3, 4)[0m
+  ↳ app/serializers/api_serializer.rb:15:in 'Enumerable#map'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 6554)
+
+
+Started POST "/rooms" for ::1 at 2026-06-14 13:46:31 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "sree", "capacity" => 5, "floor" => 3, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "sree", "capacity" => 5, "floor" => 3}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 285)
+
+
+  
+Zeitwerk::NameError (expected file /Users/smn/assignment/meeting_room_booking/app/validations/room_create_validator.rb to define constant RoomCreateValidator, but didn't):
+  
+app/controllers/concerns/rooms_validation_methods.rb:15:in 'RoomsValidationMethods#create_validator'
+app/controllers/concerns/rooms_validation_methods.rb:7:in 'RoomsValidationMethods#validate_create_params'
+Started POST "/rooms" for ::1 at 2026-06-14 13:46:39 +0530
+Processing by RoomsController#create as */*
+  Parameters: {"name" => "sree", "capacity" => 5, "floor" => 3, "amenities" => ["TV", "Whiteboard"], "room" => {"name" => "sree", "capacity" => 5, "floor" => 3}}
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125b99e40>, params: {"name" => "sree", "capacity" => 5, "floor" => 3, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "sree", "capacity" => 5, "floor" => 3}} }[0m
+[31mUnpermitted parameter: :room. Context: { controller: RoomsController, action: create, request: #<ActionDispatch::Request:0x0000000125b99e40>, params: {"name" => "sree", "capacity" => 5, "floor" => 3, "amenities" => ["TV", "Whiteboard"], "controller" => "rooms", "action" => "create", "room" => {"name" => "sree", "capacity" => 5, "floor" => 3}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mRoom Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `rooms` WHERE `rooms`.`name` = 'sree' LIMIT 1[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mRoom Create (0.7ms)[0m  [1m[32mINSERT INTO `rooms` (`name`, `capacity`, `floor`, `created_at`, `updated_at`) VALUES ('sree', 5, 3, '2026-06-14 08:16:39.926836', '2026-06-14 08:16:39.926836')[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:11:in 'RoomService.create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoomAmenity Create (0.2ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (5, 'TV', '2026-06-14 08:16:39.935548', '2026-06-14 08:16:39.935548')[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoomAmenity Create (0.4ms)[0m  [1m[32mINSERT INTO `room_amenities` (`room_id`, `amenity`, `created_at`, `updated_at`) VALUES (5, 'Whiteboard', '2026-06-14 08:16:39.937609', '2026-06-14 08:16:39.937609')[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/room_service.rb:14:in 'block in RoomService.create'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 5 LIMIT 1[0m
+  ↳ app/services/room_service.rb:17:in 'RoomService.create'
+  [1m[36mRoomAmenity Load (0.3ms)[0m  [1m[34mSELECT `room_amenities`.* FROM `room_amenities` WHERE `room_amenities`.`room_id` = 5[0m
+  ↳ app/serializers/api_serializer.rb:10:in 'Enumerable#map'
+Completed 201 Created in 28ms (Views: 0.1ms | ActiveRecord: 14.4ms | Allocations: 15947)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:49:21 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "booking" => {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}}
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124cd3168>, params: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+[31mUnpermitted parameter: :booking. Context: { controller: BookingsController, action: create, request: #<ActionDispatch::Request:0x0000000124cd3168>, params: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z", "controller" => "bookings", "action" => "create", "booking" => {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}} }[0m
+  [1m[36mIdempotencyKey Load (0.6ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.6ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, 'b8cfc297488a87623dd96042a3cfe72473247fc826e93e9225cbde87b02edde5', 'processing', '2026-06-14 08:19:38.915117', '2026-06-14 08:19:38.915117')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 2 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (2, 'Daily Standup2', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 08:19:38.934210', '2026-06-14 08:19:38.934210')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`id` != 8 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.4ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 9, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 08:19:38.936439' WHERE `idempotency_keys`.`id` = 8[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 17333ms (Views: 0.1ms | ActiveRecord: 13.9ms | Allocations: 163457)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:50:40 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (10.9ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.2ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-001', 'john@example.com', NULL, 'b8cfc297488a87623dd96042a3cfe72473247fc826e93e9225cbde87b02edde5', 'processing', '2026-06-14 08:20:40.926646', '2026-06-14 08:20:40.926646')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 2 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 2 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (2, 'Daily Standup2', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 08:20:40.941046', '2026-06-14 08:20:40.941046')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-001' AND `idempotency_keys`.`id` != 9 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.5ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 10, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 08:20:40.943681' WHERE `idempotency_keys`.`id` = 9[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 57ms (Views: 0.1ms | ActiveRecord: 24.8ms | Allocations: 20191)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:50:47 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.3ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 10 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:95:in 'BookingService.handle_existing_idempotency'
+Completed 201 Created in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1981)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:50:47 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 10 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:95:in 'BookingService.handle_existing_idempotency'
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1725)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:50:48 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.7ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 10 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:95:in 'BookingService.handle_existing_idempotency'
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 1724)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 13:51:18 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 2, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mBooking Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 2[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 2 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2670)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:51:30 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-001' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 6ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1034)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:51:39 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (1.7ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-002' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-002' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.4ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-002', 'john@example.com', NULL, '53099a1389e12afea4c99fb84bac1b1118c9efbdef95106d5ef6271c340d30c2', 'processing', '2026-06-14 08:21:39.710264', '2026-06-14 08:21:39.710264')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.2ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Daily Standup2', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 08:21:39.721483', '2026-06-14 08:21:39.721483')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-002' AND `idempotency_keys`.`id` != 10 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.4ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 11, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 08:21:39.728694' WHERE `idempotency_keys`.`id` = 10[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 38ms (Views: 0.8ms | ActiveRecord: 5.7ms | Allocations: 8387)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:51:46 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.3ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-002' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 11 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:95:in 'BookingService.handle_existing_idempotency'
+Completed 201 Created in 11ms (Views: 1.0ms | ActiveRecord: 0.8ms | Allocations: 1724)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:52:02 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+Completed 409 Conflict in 19ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 2554)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:52:11 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 3, "title" => "Daily Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-07-14T09:00:00Z", "end_time" => "2026-07-14T10:00:00Z"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 3 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 3 AND (start_time < '2026-07-14 10:00:00' AND end_time > '2026-07-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mBooking Create (0.7ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (3, 'Daily Standup2', 'john@example.com', '2026-07-14 09:00:00', '2026-07-14 10:00:00', 'confirmed', '2026-06-14 08:22:11.105468', '2026-06-14 08:22:11.105468')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+Completed 201 Created in 12ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 3986)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 13:53:03 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 3, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 3 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 3 AND (start_time < '2026-08-14 10:00:00' AND end_time > '2026-08-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mBooking Create (0.5ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (3, 'Dailyy Standup2', 'john@example.com', '2026-08-14 09:00:00', '2026-08-14 10:00:00', 'confirmed', '2026-06-14 08:23:03.650882', '2026-06-14 08:23:03.650882')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 3987)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 13:56:13 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 3, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 3 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mBooking Update (0.4ms)[0m  [1m[33mUPDATE `bookings` SET `bookings`.`status` = 'cancelled', `bookings`.`updated_at` = '2026-06-14 08:26:13.299323' WHERE `bookings`.`id` = 13[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 10.3ms | Allocations: 11717)
+
+
+Started GET "/reports/room-utilization" for ::1 at 2026-06-14 13:57:04 +0530
+Processing by ReportsController#room_utilization as */*
+Filter chain halted as :validate_utilization_params rendered or redirected
+Completed 400 Bad Request in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1961)
+
+
+Started GET "/reports/room-utilization?from=2026-06-01T00:00:00Z&to=2026-06-30T23:59:59Z" for ::1 at 2026-06-14 13:57:39 +0530
+Processing by ReportsController#room_utilization as */*
+  Parameters: {"from" => "2026-06-01T00:00:00Z", "to" => "2026-06-30T23:59:59Z"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` IN (1, 2, 3, 4, 5)[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 5339)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:38 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:39 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:40 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:41 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup2", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:48 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:48 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.7ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 760)
+
+
+Started POST "/bookings/13/cancel" for ::1 at 2026-06-14 14:01:49 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z", "id" => "13"}
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 13 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 760)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:01:55 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 113, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 113 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+Completed 404 Not Found in 18ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2574)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:08:42 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z"}
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-08-14 10:00:00' AND end_time > '2026-08-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mBooking Create (0.8ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Dailyy Standup0', 'john@example.com', '2026-08-14 09:00:00', '2026-08-14 10:00:00', 'confirmed', '2026-06-14 08:38:42.453607', '2026-06-14 08:38:42.453607')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+Completed 201 Created in 18ms (Views: 0.3ms | ActiveRecord: 4.6ms | Allocations: 4225)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:08:49 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.4ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-002' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 21ms (Views: 0.1ms | ActiveRecord: 4.1ms | Allocations: 4663)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:08:59 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T09:00:00Z", "end_time" => "2026-08-14T10:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.6ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-003' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-003' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.9ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-003', 'john@example.com', NULL, '646948d7a37b7a02fbed8e1542733770f8c51d60b629853e087c4dfea29c8b07', 'processing', '2026-06-14 08:38:59.230188', '2026-06-14 08:38:59.230188')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-08-14 10:00:00' AND end_time > '2026-08-14 09:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 409 Conflict in 22ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 6161)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:09:13 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:00:00Z", "end_time" => "2026-08-14T11:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.6ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-003' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-003' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.5ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-003', 'john@example.com', NULL, 'd427649c4b35e91bf625ab5941efc50dd8a049df67f0ab3699abac444e547dd7', 'processing', '2026-06-14 08:39:13.070350', '2026-06-14 08:39:13.070350')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:119:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-08-14 11:00:00' AND end_time > '2026-08-14 10:00:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mBooking Create (0.6ms)[0m  [1m[32mINSERT INTO `bookings` (`room_id`, `title`, `organizer_email`, `start_time`, `end_time`, `status`, `created_at`, `updated_at`) VALUES (1, 'Dailyy Standup0', 'john@example.com', '2026-08-14 10:00:00', '2026-08-14 11:00:00', 'confirmed', '2026-06-14 08:39:13.076760', '2026-06-14 08:39:13.076760')[0m
+  ↳ app/services/booking_service.rb:138:in 'BookingService.create_booking!'
+  [1m[36mIdempotencyKey Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-003' AND `idempotency_keys`.`id` != 12 AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Update (0.8ms)[0m  [1m[33mUPDATE `idempotency_keys` SET `idempotency_keys`.`booking_id` = 15, `idempotency_keys`.`status` = 'completed', `idempotency_keys`.`updated_at` = '2026-06-14 08:39:13.084535' WHERE `idempotency_keys`.`id` = 12[0m
+  ↳ app/services/booking_service.rb:73:in 'block in BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 201 Created in 30ms (Views: 0.3ms | ActiveRecord: 5.5ms | Allocations: 8514)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 14:23:41 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:00:00Z", "end_time" => "2026-08-14T11:00:00Z"}
+  [1m[36mBooking Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 6903)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 14:24:11 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z"}
+  [1m[36mBooking Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 2273)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:24:17 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.5ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-003' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 13ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 5045)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:24:24 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.4ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-002' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+Completed 400 Bad Request in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 953)
+
+
+Started POST "/bookings" for ::1 at 2026-06-14 14:24:28 +0530
+Processing by BookingsController#create as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z"}
+  [1m[36mIdempotencyKey Load (0.4ms)[0m  [1m[34mSELECT `idempotency_keys`.* FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = 'booking-008' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:51:in 'BookingService.create_with_idempotency'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM `idempotency_keys` WHERE `idempotency_keys`.`key` = BINARY 'booking-008' AND `idempotency_keys`.`organizer_email` = 'john@example.com' LIMIT 1[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mIdempotencyKey Create (0.6ms)[0m  [1m[32mINSERT INTO `idempotency_keys` (`key`, `organizer_email`, `booking_id`, `request_hash`, `status`, `created_at`, `updated_at`) VALUES ('booking-008', 'john@example.com', NULL, 'a9c42d12476b9b398a8669e9487b6568a5280d2527037c40af20030e85c44aac', 'processing', '2026-06-14 08:54:28.442916', '2026-06-14 08:54:28.442916')[0m
+  ↳ app/services/booking_service.rb:64:in 'block in BookingService.create_with_idempotency'
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/booking_service.rb:120:in 'BookingService.create_booking!'
+  [1m[36mBooking Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` = 1 AND (start_time < '2026-06-15 11:00:00' AND end_time > '2026-06-15 09:30:00') LIMIT 1[0m
+  ↳ app/services/booking_rules.rb:24:in 'BookingRules.overlapping?'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/services/booking_service.rb:63:in 'BookingService.create_with_idempotency'
+Completed 409 Conflict in 29ms (Views: 0.2ms | ActiveRecord: 3.3ms | Allocations: 9341)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 14:25:37 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z"}
+  [1m[36mBooking Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 2274)
+
+
+Started POST "/bookings/15/cancel" for ::1 at 2026-06-14 14:26:05 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-06-15T09:30:00Z", "end_time" => "2026-06-15T11:00:00Z", "id" => "15"}
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 15 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` WHERE `rooms`.`id` = 1 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mBooking Update (0.5ms)[0m  [1m[33mUPDATE `bookings` SET `bookings`.`status` = 'cancelled', `bookings`.`updated_at` = '2026-06-14 08:56:05.934019' WHERE `bookings`.`id` = 15[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/services/cancellation_service.rb:14:in 'CancellationService.cancel'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 5657)
+
+
+Started POST "/bookings/15/cancel" for ::1 at 2026-06-14 14:26:25 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z", "id" => "15"}
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 15 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 760)
+
+
+Started POST "/bookings/15/cancel" for ::1 at 2026-06-14 14:28:27 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z", "id" => "15"}
+  [1m[36mBooking Load (0.6ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 15 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 760)
+
+
+Started POST "/bookings/15/cancel" for ::1 at 2026-06-14 14:30:29 +0530
+Processing by BookingsController#cancel as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z", "id" => "15"}
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`id` = 15 LIMIT 1[0m
+  ↳ app/services/cancellation_service.rb:4:in 'CancellationService.cancel'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 760)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS `meeting_room_booking_test`[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE `meeting_room_booking_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `bookings` CASCADE[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE `bookings` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `room_id` bigint NOT NULL, `title` varchar(255), `organizer_email` varchar(255), `start_time` datetime(6), `end_time` datetime(6), `status` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_bookings_on_room_status_and_times` (`room_id`, `status`, `start_time`, `end_time`), INDEX `index_bookings_on_room_id` (`room_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS `idempotency_keys` CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE `idempotency_keys` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `key` varchar(255), `organizer_email` varchar(255), `booking_id` bigint, `request_hash` varchar(255), `status` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_idempotency_keys_on_booking_id` (`booking_id`), UNIQUE INDEX `index_idempotency_keys_on_key_and_organizer_email` (`key`, `organizer_email`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `room_amenities` CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `room_amenities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `room_id` bigint NOT NULL, `amenity` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_room_amenities_on_room_id` (`room_id`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `rooms` CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE `rooms` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `capacity` int, `floor` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, UNIQUE INDEX `index_rooms_on_name` (`name`)) DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci[0m
+  [1m[35m (14.6ms)[0m  [1m[35mALTER TABLE `bookings` ADD CONSTRAINT `fk_rails_4fe21eabc6`
+FOREIGN KEY (`room_id`)
+  REFERENCES `rooms` (`id`)
+[0m
+  [1m[35m (8.2ms)[0m  [1m[35mALTER TABLE `idempotency_keys` ADD CONSTRAINT `fk_rails_b57b8bc5d7`
+FOREIGN KEY (`booking_id`)
+  REFERENCES `bookings` (`id`)
+[0m
+  [1m[35m (7.6ms)[0m  [1m[35mALTER TABLE `room_amenities` ADD CONSTRAINT `fk_rails_7e6e0059a4`
+FOREIGN KEY (`room_id`)
+  REFERENCES `rooms` (`id`)
+[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20260614120100)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20260614064210),
+(20260614064221),
+(20260614064233),
+(20260614064510),
+(20260614120000);
+
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2026-06-14 09:11:57.934825', '2026-06-14 09:11:57.934825')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE `ar_internal_metadata` SET `ar_internal_metadata`.`value` = 'test', `ar_internal_metadata`.`updated_at` = '2026-06-14 09:11:57.937566' WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('schema_sha1', '6447851991a17d61d8432f9607358f22e1075286', '2026-06-14 09:11:57.940027', '2026-06-14 09:11:57.940027')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/bookings" for ::1 at 2026-06-14 14:52:58 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z"}
+  [1m[36mBooking Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.3ms | Allocations: 3489)
+
+
+  
+NoMethodError (undefined method 'bookings' for module ApiSerializer):
+  
+app/controllers/bookings_controller.rb:20:in 'BookingsController#index'
+Started GET "/bookings" for ::1 at 2026-06-14 14:53:05 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z"}
+  [1m[36mBooking Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 11.5ms | Allocations: 6949)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 16:21:32 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z"}
+  [1m[36mBooking Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.3ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 14402)
+
+
+Started GET "/bookings" for ::1 at 2026-06-14 16:21:33 +0530
+Processing by BookingsController#index as */*
+  Parameters: {"room_id" => 1, "title" => "Dailyy Standup0", "organizer_email" => "john@example.com", "start_time" => "2026-08-14T10:30:00Z", "end_time" => "2026-08-15T11:00:00Z"}
+  [1m[36mBooking Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `bookings` WHERE `bookings`.`room_id` = 1[0m
+  ↳ app/services/booking_service.rb:33:in 'BookingService.list'
+  [1m[36mBooking Load (0.5ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`room_id` = 1 ORDER BY `bookings`.`start_time` ASC LIMIT 20 OFFSET 0[0m
+  ↳ app/serializers/api_serializer.rb:31:in 'Enumerable#map'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 2287)
+
+
+Started GET "/reports/room-utilization?from=2026-06-01T00:00:00Z&to=2026-06-30T23:59:59Z" for ::1 at 2026-06-14 16:21:49 +0530
+Processing by ReportsController#room_utilization as */*
+  Parameters: {"from" => "2026-06-01T00:00:00Z", "to" => "2026-06-30T23:59:59Z"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT `rooms`.* FROM `rooms` ORDER BY `rooms`.`id` ASC[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+  [1m[36mBooking Load (0.8ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`status` = 'confirmed' AND `bookings`.`room_id` IN (1, 2, 3, 4, 5)[0m
+  ↳ app/services/utilization_service.rb:8:in 'Enumerable#map'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 12805)
+
+
