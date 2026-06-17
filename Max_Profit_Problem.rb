@@ -20,18 +20,19 @@ def optimize(n)
       new_time = time_used + building[:time]
       next if new_time > n
 
-      profit =
-        building[:earn] * (n - new_time)
+      remaining_time = n - new_time
 
-      candidate_profit =
-        dp[time_used] + profit
+      # Ignore buildings that never become operational
+      next if remaining_time <= 0
 
-      new_paths =
-        paths[time_used].map do |path|
-          updated = path.dup
-          updated[building[:name]] += 1
-          updated
-        end
+      profit = building[:earn] * remaining_time
+      candidate_profit = dp[time_used] + profit
+
+      new_paths = paths[time_used].map do |path|
+        updated = path.dup
+        updated[building[:name]] += 1
+        updated
+      end
 
       if candidate_profit > dp[new_time]
         dp[new_time] = candidate_profit
@@ -53,17 +54,17 @@ def optimize(n)
     best_solutions.concat(paths[t])
   end
 
-  # Remove duplicates
   best_solutions.uniq!
 
   [max_profit, best_solutions]
 end
 
+print "Enter Time Units: "
 n = gets.to_i
 
 profit, solutions = optimize(n)
 
-puts "Earnings: $#{profit}"
+puts "\nEarnings: $#{profit}"
 puts "Solutions"
 
 solutions.each_with_index do |solution, index|
